@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: auto;
+  display: block;
+}
+
+#show {
+  height: 100vh;
+}
+#show .navbar {
+  padding: 1px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#show .navbar .navbar-brand .img-fluid {
+  height: 150px;
+  max-width: 180px;
+}
+#show .navbar #btnBar {
+  display: none;
+}
+#show .navbar .collapse {
+  margin-right: 60px;
+}
+#show .navbar .collapse .navbar-nav {
+  -moz-column-gap: 120px;
+       column-gap: 120px;
+}
+#show .navbar .collapse .navbar-nav .nav-item .nav-link {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: black;
+}
+#show .navbar .collapse #btnConnect {
+  padding: 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+#show .show .row {
+  text-align: center;
+}
+#show .show .row .col-lg-4 .img-fluid {
+  height: 450px;
+  cursor: pointer;
+  max-width: 800px;
+}
+#show .footer .copy {
+  text-align: center;
+}/*# sourceMappingURL=styles.css.map */

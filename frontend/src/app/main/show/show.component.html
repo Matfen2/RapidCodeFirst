@@ -1,0 +1,28 @@
+<section id="show">
+    <div class="navbar navbar-expand-lg">
+        <div class="navbar-brand">
+            <img src="/assets/pict/acLogo.png" alt="siteLogo" class="img-fluid w-100" />
+        </div>
+        <button type="button" id="btnBar" data-bs-toggle="offcanvas" data-bs-target="#sideCanvas"><i class="fas fa-bars"></i></button>
+        <div class="collapse collapse-navbar">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a href="#" class="nav-link">PS</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">XBOX</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">STEAM</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">NINTENDO</a></li>
+            </ul>
+            <button type="button" id="btnConnect" [routerLink]="'/login'">SE CONNECTER</button>
+        </div>
+    </div>
+    <div class="show">
+        <div class="row">
+            <div class="col-lg-4" *ngFor="let game of games">
+                <img [src]="game.wallpaper" alt="pictGame" class="img-fluid w-100" appCard />
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p class="copy">© RapidCodeFirst 2024</p>
+    </div>
+</section>

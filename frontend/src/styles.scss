@@ -1,0 +1,72 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: auto;
+    display: block;
+}
+
+// MIXIN & ROOT
+$firstColor: azure;
+$secondColor: black;
+
+@mixin flex ($flexDirection) {
+    display: flex;
+    flex-direction: $flexDirection;
+}
+
+#show {
+    height: 100vh;
+    .navbar {
+        padding: 1px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .navbar-brand {
+            .img-fluid {
+                height: 150px;
+                max-width: 180px;
+            }
+        }
+        #btnBar {
+            display: none;
+        }
+        .collapse {
+            margin-right: 60px;
+            .navbar-nav {
+                column-gap: 120px;
+                .nav-item {
+                    .nav-link {
+                        font-size: 1.2em;
+                        font-weight: bold;
+                        color: $secondColor;
+                    }
+                }
+            }
+            #btnConnect { 
+                padding: 2px;
+                cursor: pointer;
+                border-radius: 5px;
+                border: 1px solid $secondColor;
+            }
+        }
+    }
+    .show {
+        .row {
+            text-align: center;
+            .col-lg-4 {
+                .img-fluid {
+                    height: 450px;
+                    cursor: pointer;
+                    max-width: 800px;
+                }
+            }
+        }
+    }
+    .footer {
+        .copy {
+            text-align: center;
+        }
+    }
+}

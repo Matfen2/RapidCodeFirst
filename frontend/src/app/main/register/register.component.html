@@ -1,0 +1,35 @@
+<form [formGroup]="signup" (ngSubmit)="register()">
+    <div class="form-area">
+        <div class="row">
+            <div class="col-lg-6">
+                <input type="text" name="user" id="user" class="form-control" formControlName="user" [ngClass]="{'is.invalid' : signup.get('user')?.touched && signup.get('user')?.dirty }" >
+                <div class="warning" *ngIf="signup.get('user')?.touched && (signup.get('user')?.dirty || signup.get('user')?.invalid)">
+                    <div class="alert alert-danger" *ngIf="signup.get('user')?.hasError('required')">Nom d'utilisateur requis</div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <input type="email" name="adress" id="adress" class="form-control" formControlName="adress" [ngClass]="{'is.invalid' : signup.get('adress')?.touched && signup.get('adress')?.dirty }" >
+                <div class="warning" *ngIf="signup.get('adress')?.touched && (signup.get('adress')?.dirty || signup.get('adress')?.invalid)">
+                    <div class="alert alert-danger" *ngIf="signup.get('adress')?.hasError('required')">Adresse email requise</div>
+                    <div class="alert alert-danger" *ngIf="signup.get('adress')?.hasError('pattern')">Adresse email incorrect</div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <input type="phone" name="phone" id="phone" class="form-control" formControlName="phone" [ngClass]="{'is.invalid' : signup.get('phone')?.touched && signup.get('phone')?.dirty }" >
+                <div class="warning" *ngIf="signup.get('phone')?.touched && (signup.get('phone')?.dirty || signup.get('phone')?.invalid)">
+                    <div class="alert alert-danger" *ngIf="signup.get('phone')?.hasError('required')">Numéro de téléphone requis</div>
+                    <div class="alert alert-danger" *ngIf="signup.get('phone')?.hasError('pattern')">Numéro de téléphone incorrect</div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <input type="password" name="pass" id="pass" class="form-control" formControlName="pass" [ngClass]="{'is.invalid' : signup.get('pass')?.touched && signup.get('pass')?.dirty }" >
+                <div class="warning" *ngIf="signup.get('pass')?.touched && (signup.get('pass')?.dirty || signup.get('pass')?.invalid)">
+                    <div class="alert alert-danger" *ngIf="signup.get('pass')?.hasError('required')">Mot de Passe requis</div>
+                    <div class="alert alert-danger" *ngIf="signup.get('pass')?.hasError('pattern')">Mot de Passe incorrect</div>
+                </div>
+            </div>
+        </div>
+        <p>Vous etes déjà inscrit ? <a href="" [routerLink]="'/login'">Connectez-vous</a></p>
+        <button type="submit" id="btnRegister" [disabled]="signup.invalid">ENREGISTRER</button>
+    </div>
+</form>
