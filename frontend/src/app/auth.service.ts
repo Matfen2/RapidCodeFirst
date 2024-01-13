@@ -6,17 +6,16 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private _http: HttpClient) {}
-
+  constructor(private _http : HttpClient) {}
   apiUrl = 'http://localhost:3000';
 
   // Login
   connectMember(adress: string, pass: string): Observable<any> {
-    return this._http.post(`${this.apiUrl}/login`, { adress, pass });
-  }
+    return this._http.post(`${this.apiUrl}/connect`, {adress, pass})
+  };
 
   // Register
-  registerMember(user: any): Observable<any> {
-    return this._http.get(`${this.apiUrl}/register`, user);
-  }
+  registerMember(data: any): Observable<any> {
+    return this._http.post(`${this.apiUrl}/register`, data)
+  };
 }

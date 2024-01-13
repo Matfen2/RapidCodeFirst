@@ -17,14 +17,14 @@ const db = mysql.createConnection({
 
 db.connect((error) => {
     if (!error) {
-        console.log("Connection réussie de la base de données");
+        console.log('Connection réussie de la base de données');
     } else {
-        console.log("Echec de la connection de la base de données");
+        console.log('Echec de la connection de la base de données');
     }
-});
+})
 
 app.listen(PORT, () => {
-    console.log("Connection au port serveur " + PORT);
+    console.log('Connection au port serveur ' + PORT);
 });
 
 // LOGIN
@@ -33,15 +33,15 @@ app.post('/connect', (res, req) => {
     let pass = req.body.pass;
     let qr = `SELECT * FROM account WHERE adress = ? AND pass = ?`;
 
-    db.query(qr, [adress, pass], (result, error) => {
+    db.query(qr, [adress, pass], (results, error) => {
         if (!error) {
-            if (result.length > 0) {
-                res.status(200).send({ message : "Connexion réussie" });
+            if (results.length > 0) {
+                res.status(200).send({ message : "Connection réussie" });
             } else {
-                res.status(400).send({ message: "Echec de la connexion" });
+                res.status(500).send({ message: "Echec de la connection" });
             }
         } else {
-            res.status(500).send({ message: "Erreur interne de connexion" });
+            res.status(400).send({ message: "Erreur interne de connection" });
         }
     })
 })
@@ -54,15 +54,15 @@ app.post('/register', (res, req) => {
     let pass = req.body.pass;
     let qr = `INSERT INTO account (user, adress, phone, pass) VALUES (?, ?, ?, ?)`;
 
-    db.query(qr, [user, adress, phone, pass], (result, error) => {
+    db.query(qr, [user, adress, phone, pass], (results, error) => {
         if (!error) {
-            if (result.affectedRows > 0) {
-                res.status(200).send({ message : "Enregistrement réussi" });
+            if (results.affectedRows > 0) {
+                res.status(200).send({ message : "Enregistrement réussie" });
             } else {
-                res.status(400).send({ message: "Echec de l'enregistrement" });
+                res.status(500).send({ message: "Echec de l'enregistrement" });
             }
         } else {
-            res.status(500).send({ message: "Erreur interne de connexion" });
+            res.status(400).send({ message: "Erreur interne de connection" });
         }
     })
-})
+});

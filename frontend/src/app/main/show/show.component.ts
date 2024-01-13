@@ -5,21 +5,19 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './show.component.html',
   styleUrls: ['./show.component.css'],
 })
-export class ShowComponent implements OnInit {
-  games = [
+export class ShowComponent {
+  medias = [
     {
       id: 1,
-      wallpaper: '/assets/pict/finalFantasyVIIRebirth.jpg',
+      wallpaper: '/assets/pict/cyberpunk2077.jpg',
     },
     {
       id: 2,
-      wallpaper: '/assets/pict/cyberpunk2077UltimateEdition.jpg',
+      wallpaper: '/assets/pict/cyberpunk2077Edgerunner.jpg',
     },
     {
       id: 3,
-      wallpaper: '/assets/pict/godOfWarRagnarok.jpg',
-    }
+      wallpaper: '/assets/pict/cyberpunk2077PhantomLiberty.jpg',
+    },
   ];
-
-  ngOnInit(): void {}
 }
