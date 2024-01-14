@@ -8,57 +8,83 @@ body {
 }
 
 #show {
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: url("/assets/pict/cyberpunk2077Yellow.jpg");
+  height: auto;
 }
 #show .navbar {
-  padding: 1px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
 }
 #show .navbar .navbar-brand .img-fluid {
-  height: 150px;
-  max-width: 260px;
+  height: 120px;
+  max-width: 300px;
 }
 #show .navbar #btnBar {
   display: none;
 }
 #show .navbar .collapse {
-  margin-right: 20px;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: row;
   justify-content: end;
 }
-#show .navbar .collapse .navbar-nav {
-  -moz-column-gap: 80px;
-       column-gap: 80px;
+#show .navbar .collapse .dropdown {
+  list-style-type: none;
+  justify-content: end;
+  -moz-column-gap: 120px;
+       column-gap: 120px;
+  display: flex;
+  flex-direction: row;
 }
-#show .navbar .collapse .navbar-nav .nav-item .nav-link {
+#show .navbar .collapse .dropdown .dropdow-toggle .dropdown-menu .dropdown-item {
   font-size: 1.2em;
   font-weight: bold;
-  color: black;
 }
-#show .navbar .collapse .navbar-nav .dropdown .dropdown-menu {
-  max-width: 100%;
+#show .navbar .collapse .dropdown .nav-item .nav-link {
+  font-size: 1.2em;
+  font-weight: bold;
 }
-#show .navbar .collapse #btnConnect {
+#show .navbar .collapse .dropdown #btnConnect {
   padding: 2px;
   cursor: pointer;
-  margin-left: 60px;
+  font-size: 1.1em;
+  font-weight: bold;
   border-radius: 5px;
+  background-color: transparent;
   border: 1px solid black;
 }
-#show .show .row {
+#show .show .row .col-lg-4 .img-fluid {
+  height: 400px;
+  cursor: pointer;
+  max-width: 600px;
+}
+#show .show .listBtn {
+  margin: 20px auto;
+  display: block;
+  text-align: center;
+  max-width: 800px;
+  justify-content: center;
+}
+#show .show .listBtn #btnSwitch {
+  font-size: 1.1em;
+  font-weight: bold;
+  padding: 2px;
+  border-radius: 2px;
+  border: 1px solid black;
+  background-color: transparent;
+}
+#show .show .showPictures .picture .wallpaper {
+  margin: auto;
+  display: block;
   text-align: center;
 }
-#show .show .row .col-lg-4 .img-fluid {
-  height: 350px;
-  cursor: pointer;
-  max-width: 650px;
-  border: 4px solid black;
+#show .show .showPictures .picture .wallpaper .img-fluid {
+  height: 300px;
+  max-width: 450px;
+  border-radius: 5px;
+  border: 0px solid azure;
 }
 #show .footer .copy {
   text-align: center;
+  font-size: 1.4em;
+  font-weight: bold;
 }/*# sourceMappingURL=styles.css.map */

@@ -1,32 +1,71 @@
 <section id="show" style="background-image: url('/assets/pict/cyberpunk2077Yellow.jpg');">
     <div class="navbar navbar-expand-lg">
-        <div class="navbar-brand">
-          <img src="/assets/pict/cyberpunk2077Logo.png" alt="logoCyberpunk2077" class="img-fluid w-100" />
-        </div>
-        <button type="button" id="btnBar" data-bs-toggle="modal" data-bs-target="#listHref"><i class="fas fa-bars"></i></button>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav">
-                <div class="dropdown">
-                    <a href="#" class="btn btn-secondary dropdown-toggle" id="characters" data-bs-toggle="dropdown">PERSONNAGES</a>
-                    <ul class="dropdown-menu" aria-labelledby="#characters">
-                        <li><a href="" class="dropdown-item" [routerLink]="'/register'">V</a></li>
-                    </ul>
-                </div>
-                <li class="nav-item"><a href="#" class="nav-link">NIGHT CITY</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">GOODIES</a></li>
-            </ul>
-            <button type="button" id="btnConnect" [routerLink]="'/login'">SE CONNECTER</button>
-        </div>
+    <div class="navbar-brand">
+        <img src="/assets/pict/cyberpunk2077Logo.png" class="img-fluid w-100" alt="cyberpunk2077Logo" />
     </div>
+    <button type="button" id="btnBar" data-bs-toggle="offcanvas" data-bs-target="#showCanvas"><i class="fas fa-bars"></i></button>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" data-bs-target="#charactersDropdown">PERSONNAGES</a>
+                <div class="dropdown-menu" id="charactersDropdown">
+                    <a href="#" class="dropdown-item">V</a>
+                    <a href="#" class="dropdown-item">JACKIE WELLES</a>
+                    <a href="#" class="dropdown-item">JOHNY SILVERHAND</a>
+                    <a href="#" class="dropdown-item">JUDY ALVAREZ</a>
+                </div>
+            </li>
+            <li class="nav-item"><a href="#" class="nav-link">NIGHT CITY</a></li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-target="goodiesDropdown" role="button" data-bs-toggle="dropdown">GOODIES</a>
+                <div class="dropdown-menu" id="goodiesDropdown">
+                    <a href="#" class="dropdown-item">VETEMENTS</a>
+                    <a href="#" class="dropdown-item">FIGURINES</a>
+                    <a href="#" class="dropdown-item">ACCESSOIRES</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <button type="button" class="btn btn-secondary" id="btnConnect" [routerLink]="'/login'">SE CONNECTER</button>
+            </li>
+        </ul>
+    </div>
+</div>
 
     <div class="show">
         <div class="row">
             <div class="col-lg-4" *ngFor="let media of medias">
-                <img [src]="media.wallpaper" alt="wallpaper" class="img-fluid w-100" appCard />
+                <img [src]="media.wallpaper" class="img-fluid" alt="cyberpunkWallpaper" appCard />
+            </div>
+        </div>
+        <div class="listBtn">
+            <button type="button" id="btnSwitch" (click)="showPicture('imgOne')">PICTURE 1</button>
+            <button type="button" id="btnSwitch" (click)="showPicture('imgTwo')">PICTURE 2</button>
+            <button type="button" id="btnSwitch" (click)="showPicture('imgThree')">PICTURE 3</button>
+            <button type="button" id="btnSwitch" (click)="showPicture('imgFour')">PICTURE 4</button>
+        </div>
+        <div class="showPictures" [ngSwitch]="cyberpunk">
+            <div class="picture"*ngSwitchCase="'imgOne'">
+                <div class="wallpaper" *ngFor="let first of firstImg">
+                    <img [src]="first.picture" class="img-fluid" alt="firstImg" />
+                </div>
+            </div>
+            <div class="picture"*ngSwitchCase="'imgTwo'">
+                <div class="wallpaper" *ngFor="let second of secondImg">
+                    <img [src]="second.picture" class="img-fluid" alt="secondImg" />
+                </div>
+            </div>
+            <div class="picture"*ngSwitchCase="'imgThree'">
+                <div class="wallpaper" *ngFor="let third of thirdImg">
+                    <img [src]="third.picture" class="img-fluid" alt="thirdImg" />
+                </div>
+            </div>
+            <div class="picture"*ngSwitchCase="'imgFour'">
+                <div class="wallpaper" *ngFor="let four of fourImg">
+                    <img [src]="four.picture" class="img-fluid" alt="fourImg" />
+                </div>
             </div>
         </div>
     </div>
-
     <div class="footer">
         <p class="copy">© Cyberpunk 2077</p>
     </div>

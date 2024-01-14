@@ -1,0 +1,34 @@
+<section id="register">
+    <form [formGroup]="signup" (ngSubmit)="register">
+        <div class="row">
+            <div class="col-lg-6">
+                <input type="text" class="form-control" name="user" id="user" placeholder="Nom d'utilisateur" formControlName="user" [ngClass]="{ 'is.invalid': signup.get('user')?.touched && signup.get('user')?.invalid }" />
+                <div class="warning" *ngIf="signup.get('user')?.invalid && (signup.get('user')?.dirty || signup.get('user')?.touched)">
+                    <div class="alert alert-danger" *ngIf="signup.get('user')?.hasError('required')">Nom d'utilisateur requis</div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <input type="email" class="form-control" name="adress" id="adress" placeholder="Adresse email" formControlName="adress" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" [ngClass]="{ 'is.invalid': signup.get('adress')?.touched && signup.get('adress')?.invalid }" />
+                <div class="warning" *ngIf="signup.get('adress')?.invalid && (signup.get('adress')?.dirty || signup.get('adress')?.touched)">
+                    <div class="alert alert-danger" *ngIf="signup.get('adress')?.hasError('required')">L'adresse email est requise</div>
+                    <div class="alert alert-danger" *ngIf="signup.get('adress')?.hasError('pattern')">Adresse email non sécurisée</div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <input type="phone" class="form-control" name="phone" id="phone" placeholder="Numéro de téléphone" formControlName="phone" pattern="^[0-9]{10}$" [ngClass]="{ 'is.invalid': signup.get('phone')?.touched && signup.get('phone')?.invalid }" />
+                <div class="warning" *ngIf="signup.get('phone')?.invalid && (signup.get('phone')?.dirty || signup.get('phone')?.touched)">
+                    <div class="alert alert-danger" *ngIf="signup.get('phone')?.hasError('required')">Numéro de téléphone requis</div>
+                    <div class="alert alert-danger" *ngIf="signup.get('phone')?.hasError('pattern')">Numéro de téléphone incorrect</div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <input type="password" class="form-control" name="pass" id="pass" placeholder="Mot de passe" formControlName="pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" [ngClass]="{ 'is.invalid': signup.get('pass')?.touched && signup.get('pass')?.invalid }" />
+                <div class="warning" *ngIf="signup.get('pass')?.invalid && (signup.get('pass')?.dirty || signup.get('pass')?.touched)">
+                    <div class="alert alert-danger" *ngIf="signup.get('pass')?.hasError('required')">L'adresse email est requise</div>
+                    <div class="alert alert-danger" *ngIf="signup.get('pass')?.hasError('pattern')">La forme de l'adresse email est incorrecte</div>
+                </div>
+            </div>
+        </div>
+        <button type="submit" id="btnRegister" [disabled]="signup.invalid">ENREGISTRER</button>
+    </form>
+</section>

@@ -1,0 +1,28 @@
+<div class="section" id="login">
+    <div class="containLogIn">
+        <form [formGroup]="login" (ngSubmit)="connect()" class="form-area">
+            <p class="identify">Identifiez-vous :</p>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <label for="adress"></label>
+                        <input type="email" class="form-control" name="adress" id="adress" placeholder="Adresse email" formControlName="adress" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" [ngClass]="{ 'is-invalid': login.get('adress')?.touched && login.get('adress')?.invalid }" />
+                        <div class="warning" *ngIf="login.get('adress')?.invalid && (login.get('adress')?.dirty || login.get('adress')?.touched)">
+                            <div class="alert alert-danger" *ngIf="login.get('adress')?.hasError('required')">L'adresse email est requise</div>
+                            <div class="alert alert-danger" *ngIf="login.get('adress')?.hasError('pattern')">La forme de l'adresse email est incorrecte</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="pass"></label>
+                        <input type="password" class="form-control" name="pass" id="pass" placeholder="Mot de Passe" formControlName="pass" [ngClass]="{ 'is-invalid': login.get('pass')?.touched && login.get('pass')?.invalid }" />
+                        <div class="warning" *ngIf="login.get('pass')?.invalid && (login.get('pass')?.dirty || login.get('pass')?.touched)">
+                            <div class="alert alert-danger" *ngIf="login.get('pass')?.hasError('required')">Le mot de passe est requis</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="already">Vous n'êtes pas inscrit ? <a [routerLink]="'/signup'" class="hrefSignUp">Inscrivez-vous</a></p>
+            <button type="submit" id="btnIdentify" [disabled]="login.invalid">SE CONNECTER</button>
+        </form>
+    </div>
+</div>

@@ -8,70 +8,100 @@ body {
 }
 
 // MIXIN & ROOT
-$firstColor: azure;
-$secondColor: black;
-
 @mixin flex ($flexDirection) {
     display: flex;
     flex-direction: $flexDirection;
 }
 
+$firstColor: azure;
+$secondColor: black;
+
+// SHOW
 #show {
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-image: url('/assets/pict/cyberpunk2077Yellow.jpg');
+    height: auto;
     .navbar {
-        padding: 1px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        @include flex (row);
         .navbar-brand {
             .img-fluid {
-                height: 150px;
-                max-width: 260px;
+                height: 120px;
+                max-width: 300px;
             }
         }
         #btnBar {
             display: none;
         }
         .collapse {
-            margin-right: 20px;
+            margin-right: 10px;
+            @include flex (row);
             justify-content: end;
-            .navbar-nav {
-                column-gap: 80px;
-                .nav-item {
-                    .nav-link {
+            .dropdown {
+                list-style-type: none;
+                justify-content: end;
+                column-gap: 120px;
+                @include flex (row);
+                .dropdow-toggle {
+                .dropdown-menu {
+                    .dropdown-item {
                         font-size: 1.2em;
                         font-weight: bold;
-                        color: $secondColor;
-                    }
-                }
-                .dropdown {
-                    .dropdown-menu {
-                        max-width: 100%;
                     }
                 }
             }
-            #btnConnect { 
+            .nav-item {
+                .nav-link {
+                    font-size: 1.2em;
+                    font-weight: bold;
+                }
+            }
+            #btnConnect {
                 padding: 2px;
                 cursor: pointer;
-                margin-left: 60px;
+                font-size: 1.1em;
+                font-weight: bold;
                 border-radius: 5px;
+                background-color: transparent;
                 border: 1px solid $secondColor;
             }
         }
+            }
     }
     .show {
         .row {
-            text-align: center;
             .col-lg-4 {
                 .img-fluid {
-                    height: 350px;
+                    height: 400px;
                     cursor: pointer;
-                    max-width: 650px;
-                    border: 4px solid $secondColor;
+                    max-width: 600px;
+                }
+            }
+        }
+        .listBtn {
+            margin: 20px auto;
+            display: block;
+            text-align: center;
+            max-width: 800px;
+            justify-content: center;
+            #btnSwitch {
+                font-size: 1.1em;
+                font-weight: bold;
+                padding: 2px;
+                border-radius: 2px;
+                border: 1px solid black;
+                background-color: transparent;
+            }
+        }
+        .showPictures {
+            .picture {
+                .wallpaper {
+                    margin: auto;
+                    display: block;
+                    text-align: center;
+                    .img-fluid {
+                        height: 300px;
+                        max-width: 450px;
+                        border-radius: 5px;
+                        border: 0px solid $firstColor;
+                    }
                 }
             }
         }
@@ -79,6 +109,8 @@ $secondColor: black;
     .footer {
         .copy {
             text-align: center;
+            font-size: 1.4em;
+            font-weight: bold;
         }
     }
 }
